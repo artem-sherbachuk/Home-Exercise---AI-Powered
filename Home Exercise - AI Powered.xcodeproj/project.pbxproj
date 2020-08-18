@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8348256B24EAFB7F00E61A32 /* Exercises.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8348256A24EAFB7F00E61A32 /* Exercises.mlmodel */; };
+		8391C3F124E5DD6400399449 /* AnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8391C3EF24E5DD6300399449 /* AnimatedTransitioning.swift */; };
+		8391C3F224E5DD6400399449 /* BodyOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8391C3F024E5DD6400399449 /* BodyOverlayView.swift */; };
+		8391C3F424E5DD9000399449 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8391C3F324E5DD9000399449 /* Common.swift */; };
+		8391C3F824E5E7E900399449 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8391C3F724E5E7E900399449 /* Camera.swift */; };
 		8394474424E2A7EE00570D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394474324E2A7EE00570D62 /* AppDelegate.swift */; };
 		8394474624E2A7EE00570D62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394474524E2A7EE00570D62 /* SceneDelegate.swift */; };
-		8394474824E2A7EE00570D62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394474724E2A7EE00570D62 /* ViewController.swift */; };
+		8394474824E2A7EE00570D62 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394474724E2A7EE00570D62 /* ExerciseViewController.swift */; };
 		8394474B24E2A7EE00570D62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8394474924E2A7EE00570D62 /* Main.storyboard */; };
 		8394474D24E2A7EF00570D62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8394474C24E2A7EF00570D62 /* Assets.xcassets */; };
 		8394475024E2A7EF00570D62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8394474E24E2A7EF00570D62 /* LaunchScreen.storyboard */; };
+		83A2488724E2E88B00E4E86C /* squat.mov in Resources */ = {isa = PBXBuildFile; fileRef = 83A2488524E2E88B00E4E86C /* squat.mov */; };
+		83A2488824E2E88B00E4E86C /* resting.mov in Resources */ = {isa = PBXBuildFile; fileRef = 83A2488624E2E88B00E4E86C /* resting.mov */; };
+		83D79AB924E42C5F009F3334 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D79AB824E42C5F009F3334 /* Predictor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8348256A24EAFB7F00E61A32 /* Exercises.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Exercises.mlmodel; sourceTree = "<group>"; };
+		8391C3EF24E5DD6300399449 /* AnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTransitioning.swift; sourceTree = "<group>"; };
+		8391C3F024E5DD6400399449 /* BodyOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyOverlayView.swift; sourceTree = "<group>"; };
+		8391C3F324E5DD9000399449 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		8391C3F724E5E7E900399449 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		8394474024E2A7EE00570D62 /* Home Exercise - AI Powered.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Home Exercise - AI Powered.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8394474324E2A7EE00570D62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8394474524E2A7EE00570D62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8394474724E2A7EE00570D62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8394474724E2A7EE00570D62 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		8394474A24E2A7EE00570D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8394474C24E2A7EF00570D62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8394474F24E2A7EF00570D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8394475124E2A7EF00570D62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83A2488524E2E88B00E4E86C /* squat.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = squat.mov; sourceTree = "<group>"; };
+		83A2488624E2E88B00E4E86C /* resting.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = resting.mov; sourceTree = "<group>"; };
+		83D79AB824E42C5F009F3334 /* Predictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8391C3EE24E5DD4C00399449 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8391C3EF24E5DD6300399449 /* AnimatedTransitioning.swift */,
+				8391C3F024E5DD6400399449 /* BodyOverlayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8394473724E2A7EE00570D62 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +81,38 @@
 		8394474224E2A7EE00570D62 /* Home Exercise - AI Powered */ = {
 			isa = PBXGroup;
 			children = (
+				8391C3F324E5DD9000399449 /* Common.swift */,
 				8394474324E2A7EE00570D62 /* AppDelegate.swift */,
 				8394474524E2A7EE00570D62 /* SceneDelegate.swift */,
-				8394474724E2A7EE00570D62 /* ViewController.swift */,
+				8394474724E2A7EE00570D62 /* ExerciseViewController.swift */,
+				8391C3F724E5E7E900399449 /* Camera.swift */,
+				8391C3EE24E5DD4C00399449 /* Views */,
+				83D79AB324E42B4E009F3334 /* ModelPredictor */,
 				8394474924E2A7EE00570D62 /* Main.storyboard */,
 				8394474C24E2A7EF00570D62 /* Assets.xcassets */,
+				83A2488024E2E7A700E4E86C /* Video */,
 				8394474E24E2A7EF00570D62 /* LaunchScreen.storyboard */,
 				8394475124E2A7EF00570D62 /* Info.plist */,
 			);
 			path = "Home Exercise - AI Powered";
+			sourceTree = "<group>";
+		};
+		83A2488024E2E7A700E4E86C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				83A2488624E2E88B00E4E86C /* resting.mov */,
+				83A2488524E2E88B00E4E86C /* squat.mov */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		83D79AB324E42B4E009F3334 /* ModelPredictor */ = {
+			isa = PBXGroup;
+			children = (
+				8348256A24EAFB7F00E61A32 /* Exercises.mlmodel */,
+				83D79AB824E42C5F009F3334 /* Predictor.swift */,
+			);
+			path = ModelPredictor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +175,8 @@
 				8394475024E2A7EF00570D62 /* LaunchScreen.storyboard in Resources */,
 				8394474D24E2A7EF00570D62 /* Assets.xcassets in Resources */,
 				8394474B24E2A7EE00570D62 /* Main.storyboard in Resources */,
+				83A2488824E2E88B00E4E86C /* resting.mov in Resources */,
+				83A2488724E2E88B00E4E86C /* squat.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +187,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8394474824E2A7EE00570D62 /* ViewController.swift in Sources */,
+				8391C3F424E5DD9000399449 /* Common.swift in Sources */,
+				8394474824E2A7EE00570D62 /* ExerciseViewController.swift in Sources */,
+				8391C3F224E5DD6400399449 /* BodyOverlayView.swift in Sources */,
+				8391C3F124E5DD6400399449 /* AnimatedTransitioning.swift in Sources */,
+				8348256B24EAFB7F00E61A32 /* Exercises.mlmodel in Sources */,
 				8394474424E2A7EE00570D62 /* AppDelegate.swift in Sources */,
 				8394474624E2A7EE00570D62 /* SceneDelegate.swift in Sources */,
+				83D79AB924E42C5F009F3334 /* Predictor.swift in Sources */,
+				8391C3F824E5E7E900399449 /* Camera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

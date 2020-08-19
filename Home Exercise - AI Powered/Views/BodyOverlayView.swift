@@ -11,7 +11,7 @@ class BodyOverlayView: UIView, AnimatedTransitioning {
     private let jointLayer = CAShapeLayer()
     private var jointPath = UIBezierPath()
 
-    private let jointSegmentWidth: CGFloat = 2.0
+    private let jointSegmentWidth: CGFloat = 10.0
     private let jointSegmentLayer = CAShapeLayer()
     private var jointSegmentPath = UIBezierPath()
 
@@ -31,10 +31,10 @@ class BodyOverlayView: UIView, AnimatedTransitioning {
     }
 
     private func setupLayer() {
-        jointSegmentLayer.lineCap = .round
+        jointSegmentLayer.lineCap = .square
         jointSegmentLayer.lineWidth = jointSegmentWidth
         jointSegmentLayer.fillColor = UIColor.clear.cgColor
-        jointSegmentLayer.strokeColor = #colorLiteral(red: 0.6078431373, green: 0.9882352941, blue: 0, alpha: 1).cgColor
+        jointSegmentLayer.strokeColor = UIColor.systemRed.withAlphaComponent(0.7).cgColor
         layer.addSublayer(jointSegmentLayer)
         let jointColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         jointLayer.strokeColor = jointColor
@@ -70,7 +70,9 @@ class BodyOverlayView: UIView, AnimatedTransitioning {
             }
         }
 
-        jointLayer.path = jointPath.cgPath
-        jointSegmentLayer.path = jointSegmentPath.cgPath
+        DispatchQueue.main.async {
+            self.jointLayer.path = self.jointPath.cgPath
+            self.jointSegmentLayer.path = self.jointSegmentPath.cgPath
+        }
     }
 }

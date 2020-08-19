@@ -8,11 +8,11 @@
 import UIKit
 import AVFoundation
 
-final class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class CameraController: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     let session = AVCaptureSession()
 
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer
+    var view: AVCaptureVideoPreviewLayer
 
     private let queue = DispatchQueue(label: "CameraOutput", attributes: [], autoreleaseFrequency: .workItem)
 
@@ -21,9 +21,9 @@ final class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     private var completion: CameraCompletion?
 
     override init() {
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-        videoPreviewLayer.session = session
-        videoPreviewLayer.videoGravity = .resizeAspect
+        view = AVCaptureVideoPreviewLayer(session: session)
+        view.session = session
+        view.videoGravity = .resizeAspect
         super.init()
 
         if let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
@@ -53,19 +53,8 @@ final class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 
                 let captureConnection = output.connection(with: .video)
                 captureConnection?.preferredVideoStabilizationMode = .standard
-                // Always process the frames
                 captureConnection?.isEnabled = true
-
-                let videoOrientation: AVCaptureVideoOrientation
-                switch UIApplication.shared.windows.first?.windowScene?.interfaceOrientation {
-                case .landscapeRight:
-                    videoOrientation = .landscapeRight
-                default:
-                    videoOrientation = .portrait
-                }
-
-                captureConnection?.videoOrientation = videoOrientation
-
+                captureConnection?.videoOrientation = .portrait
                 session.commitConfiguration()
             } catch {
                 print("AVCaptureDeviceInput error \(error)")
@@ -87,40 +76,7 @@ final class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     func viewRectForVisionRect(_ visionRect: CGRect) -> CGRect {
         let flippedRect = visionRect.applying(CGAffineTransform.verticalFlip)
-        let viewRect = videoPreviewLayer.layerRectConverted(fromMetadataOutputRect: flippedRect)
+        let viewRect = view.layerRectConverted(fromMetadataOutputRect: flippedRect)
         return viewRect
     }
 }
-
-
-extension CMSampleBuffer {
-    var image: UIImage {
-        let image = UIImageFromCMSamleBuffer(buffer: self)
-        return image
-    }
-    private func UIImageFromCMSamleBuffer(buffer:CMSampleBuffer)-> UIImage {
-        let pixelBuffer:CVImageBuffer = CMSampleBufferGetImageBuffer(buffer)!
-        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-
-        let pixelBufferWidth = CGFloat(CVPixelBufferGetWidth(pixelBuffer))
-        let pixelBufferHeight = CGFloat(CVPixelBufferGetHeight(pixelBuffer))
-        let imageRect:CGRect = CGRect(x:0,y:0,width:pixelBufferWidth, height:pixelBufferHeight)
-        let ciContext = CIContext.init()
-        let cgimage = ciContext.createCGImage(ciImage, from: imageRect )
-        let image = UIImage(cgImage: cgimage!)
-        let resisedImage = resizeImage(image: image, newWidth: 500)
-        //print("resized image from camera \(resisedImage)")
-        return resisedImage
-    }
-    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        UIGraphicsBeginImageContext(CGSize(width:newWidth, height:newHeight))
-        image.draw(in: CGRect(x:0, y:0, width:newWidth, height:newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-}
-
-

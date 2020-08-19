@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17147" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressBar" customModule="Home_Exercise___AI_Powered" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundImageView" destination="C9X-Cd-PWv" id="sX8-p8-hJH"/>
+                <outlet property="progressConstraint" destination="pge-gC-l2N" id="mRo-a0-KWo"/>
+                <outlet property="progressImageView" destination="ZxP-BC-AZj" id="eWm-VD-R01"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="30" height="383"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progressBarLineBackground" translatesAutoresizingMaskIntoConstraints="NO" id="C9X-Cd-PWv">
+                    <rect key="frame" x="0.0" y="0.0" width="30" height="383"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progressBarLineFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxP-BC-AZj">
+                    <rect key="frame" x="0.0" y="383" width="30" height="0.0"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="pge-gC-l2N"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="C9X-Cd-PWv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LYC-kb-UAe"/>
+                <constraint firstItem="ZxP-BC-AZj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qbq-Zm-Sze"/>
+                <constraint firstAttribute="trailing" secondItem="ZxP-BC-AZj" secondAttribute="trailing" id="edL-Lb-sKC"/>
+                <constraint firstAttribute="bottom" secondItem="ZxP-BC-AZj" secondAttribute="bottom" id="gkD-R5-WoJ"/>
+                <constraint firstItem="C9X-Cd-PWv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="o5b-9f-oUK"/>
+                <constraint firstAttribute="trailing" secondItem="C9X-Cd-PWv" secondAttribute="trailing" id="wWB-9W-RCB"/>
+                <constraint firstAttribute="bottom" secondItem="C9X-Cd-PWv" secondAttribute="bottom" id="wpR-dy-3Cs"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-78.400000000000006" y="10.344827586206897"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="progressBarLineBackground" width="20" height="5"/>
+        <image name="progressBarLineFill" width="20" height="5"/>
+    </resources>
+</document>

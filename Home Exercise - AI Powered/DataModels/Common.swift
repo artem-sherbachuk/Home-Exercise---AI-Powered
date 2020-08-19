@@ -7,6 +7,7 @@ This is a collection of common data types, constants and helper functions used i
 
 import UIKit
 import Vision
+import AVFoundation
 
 let jointsOfInterest: [VNRecognizedPointKey] = [
     .bodyLandmarkKeyRightWrist,
@@ -96,11 +97,12 @@ func prepareInputWithObservations(_ observations: [VNRecognizedPointsObservation
     }
 
 
+    /*
     // If poseWindow does not have enough frames (60) yet, we need to pad 0s
     if numAvailableFrames < observationsNeeded {
         for _ in 0 ..< (observationsNeeded - numAvailableFrames) {
             do {
-                let oneFrameMultiArray = try MLMultiArray(shape: [1, 3, 18], dataType: .double)
+                let oneFrameMultiArray = try MLMultiArray(shape: [1, 3, 18], dataType: .float)
                 try resetMultiArray(oneFrameMultiArray)
                 multiArrayBuffer.append(oneFrameMultiArray)
             } catch {
@@ -108,12 +110,17 @@ func prepareInputWithObservations(_ observations: [VNRecognizedPointsObservation
             }
         }
     }
-    
+     */
+
+    if numAvailableFrames < observationsNeeded {
+        return nil
+    }
+
     return MLMultiArray(concatenating: [MLMultiArray](multiArrayBuffer), axis: 0, dataType: .float)
 }
 
-func resetMultiArray(_ predictionWindow: MLMultiArray, with value: Double = 0.0) throws {
-    let pointer = try UnsafeMutableBufferPointer<Double>(predictionWindow)
+func resetMultiArray(_ predictionWindow: MLMultiArray, with value: Float = 0.0) throws {
+    let pointer = try UnsafeMutableBufferPointer<Float>(predictionWindow)
     pointer.initialize(repeating: value)
 }
 
@@ -214,5 +221,27 @@ enum AppError: Error {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         
         viewController.present(alert, animated: true)
+    }
+}
+
+
+enum VideoAsset: String {
+    case resting
+    case squat
+
+    private var url: URL? {
+        guard let path = Bundle.main.path(forResource: self.rawValue, ofType:"mov") else {
+            debugPrint( "\(self.rawValue)) not found")
+            return nil
+        }
+
+        let url = URL(fileURLWithPath: path)
+        return url
+    }
+
+    var player: AVPlayer? {
+        guard let url = self.url else { return nil }
+        let player = AVPlayer(url: url)
+        return player
     }
 }

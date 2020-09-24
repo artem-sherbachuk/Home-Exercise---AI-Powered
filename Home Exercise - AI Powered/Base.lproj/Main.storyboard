@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="300" width="768" height="724"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-mB-a17">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-mB-a17">
                                 <rect key="frame" x="16" y="974.5" width="736" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>

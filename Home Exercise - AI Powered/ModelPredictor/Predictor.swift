@@ -13,15 +13,15 @@ final class Predictor {
 
     typealias PredictionOutput = (label: String, confidence: Double)
 
-    let exerciseModel = try? Exercises(configuration: MLModelConfiguration())
+    let exerciseModel = try? Exercises2(configuration: MLModelConfiguration())
 
     let humanBodyPoseRequest = VNDetectHumanBodyPoseRequest()
 
     var posesWindow: [VNRecognizedPointsObservation] = []
 
-    private let predictionWindowSize = 60
+    private let predictionWindowSize = 45
 
-    private let predictionWindowFrameUpdateRate = 22
+    private let predictionWindowFrameUpdateRate = 2
 
     private let bodyPoseDetectionMinConfidence: VNConfidence = 0.6
 
@@ -72,5 +72,50 @@ final class Predictor {
         let poses = humanBodyPoseRequest.results?.first as? VNRecognizedPointsObservation
 
         return poses
+    }
+
+
+
+    func prepareInputWithObservations(_ observations: [VNRecognizedPointsObservation]) -> MLMultiArray? {
+        let numAvailableFrames = observations.count
+        let observationsNeeded = predictionWindowSize
+        var multiArrayBuffer = [MLMultiArray]()
+
+        for frameIndex in 0 ..< min(numAvailableFrames, observationsNeeded) {
+            let pose = observations[frameIndex]
+            do {
+                let oneFrameMultiArray = try pose.keypointsMultiArray()
+                multiArrayBuffer.append(oneFrameMultiArray)
+            } catch {
+                continue
+            }
+        }
+
+
+        /*
+         // If poseWindow does not have enough frames (60) yet, we need to pad 0s
+         if numAvailableFrames < observationsNeeded {
+         for _ in 0 ..< (observationsNeeded - numAvailableFrames) {
+         do {
+         let oneFrameMultiArray = try MLMultiArray(shape: [1, 3, 18], dataType: .float)
+         try resetMultiArray(oneFrameMultiArray)
+         multiArrayBuffer.append(oneFrameMultiArray)
+         } catch {
+         continue
+         }
+         }
+         }
+         */
+
+        if numAvailableFrames < observationsNeeded {
+            return nil
+        }
+
+        return MLMultiArray(concatenating: [MLMultiArray](multiArrayBuffer), axis: 0, dataType: .float)
+    }
+
+    func resetMultiArray(_ predictionWindow: MLMultiArray, with value: Float = 0.0) throws {
+        let pointer = try UnsafeMutableBufferPointer<Float>(predictionWindow)
+        pointer.initialize(repeating: value)
     }
 }

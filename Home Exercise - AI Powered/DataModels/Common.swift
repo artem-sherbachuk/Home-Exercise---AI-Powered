@@ -79,51 +79,6 @@ func warmUpVisionPipeline() {
      */
 }
 
-// MARK: - Activity Classification Helpers
-
-func prepareInputWithObservations(_ observations: [VNRecognizedPointsObservation]) -> MLMultiArray? {
-    let numAvailableFrames = observations.count
-    let observationsNeeded = 60
-    var multiArrayBuffer = [MLMultiArray]()
-
-    for frameIndex in 0 ..< min(numAvailableFrames, observationsNeeded) {
-        let pose = observations[frameIndex]
-        do {
-            let oneFrameMultiArray = try pose.keypointsMultiArray()
-            multiArrayBuffer.append(oneFrameMultiArray)
-        } catch {
-            continue
-        }
-    }
-
-
-    /*
-    // If poseWindow does not have enough frames (60) yet, we need to pad 0s
-    if numAvailableFrames < observationsNeeded {
-        for _ in 0 ..< (observationsNeeded - numAvailableFrames) {
-            do {
-                let oneFrameMultiArray = try MLMultiArray(shape: [1, 3, 18], dataType: .float)
-                try resetMultiArray(oneFrameMultiArray)
-                multiArrayBuffer.append(oneFrameMultiArray)
-            } catch {
-                continue
-            }
-        }
-    }
-     */
-
-    if numAvailableFrames < observationsNeeded {
-        return nil
-    }
-
-    return MLMultiArray(concatenating: [MLMultiArray](multiArrayBuffer), axis: 0, dataType: .float)
-}
-
-func resetMultiArray(_ predictionWindow: MLMultiArray, with value: Float = 0.0) throws {
-    let pointer = try UnsafeMutableBufferPointer<Float>(predictionWindow)
-    pointer.initialize(repeating: value)
-}
-
 // MARK: - Helper extensions
 
 extension CGPoint {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8314A1E224EDA42600E1C95D /* Exercises2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8314A1E124EDA42600E1C95D /* Exercises2.mlmodel */; };
 		8348256B24EAFB7F00E61A32 /* Exercises.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8348256A24EAFB7F00E61A32 /* Exercises.mlmodel */; };
 		83540D9F24ED08C700EBA283 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83540D9E24ED08C700EBA283 /* VideoView.swift */; };
 		83540DAA24ED133300EBA283 /* ProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83540DA224ED133300EBA283 /* ProgressBar.xib */; };
@@ -24,10 +25,13 @@
 		83A2488724E2E88B00E4E86C /* squat.mov in Resources */ = {isa = PBXBuildFile; fileRef = 83A2488524E2E88B00E4E86C /* squat.mov */; };
 		83A2488824E2E88B00E4E86C /* resting.mov in Resources */ = {isa = PBXBuildFile; fileRef = 83A2488624E2E88B00E4E86C /* resting.mov */; };
 		83A833E124ED38AC0082A441 /* SpeachController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A833E024ED38AC0082A441 /* SpeachController.swift */; };
+		83B3417524EE965C00756A63 /* ExerciseCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3417424EE965C00756A63 /* ExerciseCounter.swift */; };
 		83D79AB924E42C5F009F3334 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D79AB824E42C5F009F3334 /* Predictor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8314A1E124EDA42600E1C95D /* Exercises2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Exercises2.mlmodel; sourceTree = "<group>"; };
+		833CF6A12517D0F200B99CA4 /* Home Exercise - AI Powered.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Home Exercise - AI Powered.entitlements"; sourceTree = "<group>"; };
 		8348256A24EAFB7F00E61A32 /* Exercises.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Exercises.mlmodel; sourceTree = "<group>"; };
 		83540D9E24ED08C700EBA283 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		83540DA224ED133300EBA283 /* ProgressBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBar.xib; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 		83A2488524E2E88B00E4E86C /* squat.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = squat.mov; sourceTree = "<group>"; };
 		83A2488624E2E88B00E4E86C /* resting.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = resting.mov; sourceTree = "<group>"; };
 		83A833E024ED38AC0082A441 /* SpeachController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeachController.swift; sourceTree = "<group>"; };
+		83B3417424EE965C00756A63 /* ExerciseCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCounter.swift; sourceTree = "<group>"; };
 		83D79AB824E42C5F009F3334 /* Predictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +113,7 @@
 		8394474224E2A7EE00570D62 /* Home Exercise - AI Powered */ = {
 			isa = PBXGroup;
 			children = (
+				833CF6A12517D0F200B99CA4 /* Home Exercise - AI Powered.entitlements */,
 				8394474324E2A7EE00570D62 /* AppDelegate.swift */,
 				8394474524E2A7EE00570D62 /* SceneDelegate.swift */,
 				83A833E224ED43140082A441 /* Controller */,
@@ -138,6 +144,7 @@
 				83A833E024ED38AC0082A441 /* SpeachController.swift */,
 				8391C3F724E5E7E900399449 /* CameraController.swift */,
 				8394474724E2A7EE00570D62 /* ExerciseViewController.swift */,
+				83B3417424EE965C00756A63 /* ExerciseCounter.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				8348256A24EAFB7F00E61A32 /* Exercises.mlmodel */,
+				8314A1E124EDA42600E1C95D /* Exercises2.mlmodel */,
 				83D79AB824E42C5F009F3334 /* Predictor.swift */,
 			);
 			path = ModelPredictor;
@@ -228,10 +236,12 @@
 				83A833E124ED38AC0082A441 /* SpeachController.swift in Sources */,
 				83540DAE24ED133300EBA283 /* ProgressBar.swift in Sources */,
 				8394474824E2A7EE00570D62 /* ExerciseViewController.swift in Sources */,
+				8314A1E224EDA42600E1C95D /* Exercises2.mlmodel in Sources */,
 				8391C3F224E5DD6400399449 /* BodyOverlayView.swift in Sources */,
 				8391C3F124E5DD6400399449 /* AnimatedTransitioning.swift in Sources */,
 				8348256B24EAFB7F00E61A32 /* Exercises.mlmodel in Sources */,
 				8394474424E2A7EE00570D62 /* AppDelegate.swift in Sources */,
+				83B3417524EE965C00756A63 /* ExerciseCounter.swift in Sources */,
 				83540D9F24ED08C700EBA283 /* VideoView.swift in Sources */,
 				8394474624E2A7EE00570D62 /* SceneDelegate.swift in Sources */,
 				83D79AB924E42C5F009F3334 /* Predictor.swift in Sources */,
@@ -382,15 +392,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Home Exercise - AI Powered/Home Exercise - AI Powered.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UM6N64B787;
+				DEVELOPMENT_TEAM = F239PGHZ78;
 				INFOPLIST_FILE = "Home Exercise - AI Powered/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.artemsherbachuk.Home-Exercise---AI-Powered";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.home-exercise";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -401,15 +413,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Home Exercise - AI Powered/Home Exercise - AI Powered.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UM6N64B787;
+				DEVELOPMENT_TEAM = F239PGHZ78;
 				INFOPLIST_FILE = "Home Exercise - AI Powered/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.artemsherbachuk.Home-Exercise---AI-Powered";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.home-exercise";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -19,17 +19,11 @@ class ExerciseViewController: UIViewController {
 
     let camera = CameraController()
 
-    let speach = SpeachController()
-
     let predictor = Predictor()
 
     let bodyView = BodyOverlayView()
 
-    var squatCount = 0 {
-        didSet {
-            speach.speak("\(squatCount)")
-        }
-    }
+    let exerciseCounter = ExerciseCounter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +41,18 @@ class ExerciseViewController: UIViewController {
     private func setupUI() {
         setupCamera()
         videoView.player = VideoAsset.squat.player
+
+        exerciseCounter.shouldSpeachCount = true
+        exerciseCounter.performActionWhen { [weak self] exerciseCount in
+            guard let `self` = self else { return }
+            self.updateProgressForExercise(count: exerciseCount)
+        }
+    }
+
+    private func updateProgressForExercise(count: Int) {
+        let exerciseCount = Float(count) * 0.1
+        let newProgress = progressBar.progress + exerciseCount
+        progressBar.setProgress(newProgress, animated: true)
     }
 
     private func setupCamera() {
@@ -72,28 +78,21 @@ class ExerciseViewController: UIViewController {
             }
 
 
-            let prediction = try? self.predictor.makePrediction(buffer)
+            guard let prediction = try? self.predictor.makePrediction(buffer) else {
+                return
+            }
 
-            let label = prediction?.label ?? "..."
+            let label = prediction.label
 
             DispatchQueue.main.async {
-                self.predictionLabel.text = "pose:\(label)"
+                self.predictionLabel.text = "\(label)"
 
                 if label == "squat" {
-                    let newProgress = self.progressBar.progress + 0.1
-                    self.progressBar.setProgress(newProgress, animated: true)
-
-                    NSObject.cancelPreviousPerformRequests(withTarget: self,
-                                                           selector: #selector(self.updateSquatCount),
-                                                           object: nil)
-                    self.perform(#selector(self.updateSquatCount), with: nil, afterDelay: 0.2)
+                    self.exerciseCounter.count()
+                } else  {
+                    self.exerciseCounter.stopCount()
                 }
             }
         }
     }
-
-    @objc private func updateSquatCount() {
-        self.squatCount += 1
-    }
 }
-
